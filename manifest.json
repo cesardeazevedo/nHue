@@ -12,6 +12,8 @@
       "js": ["src/nHUE.js"],
       "matches": [ "http://*/*", "https://*/*" ]
   } ],
+  "optional_permissions": [ "http://*/*", "http://*/*", "tabs" ],
+  "options_page": "options.html",
   "browser_action": {
     "default_title": "nHUE",
     "default_icon": "hue.ico",
