@@ -1,0 +1,54 @@
+body {
+    height:100%;
+    background-color: whitesmoke;
+}
+
+.fill {
+    background: green;
+    height:5px;
+    width:100%;
+}
+
+#logo {
+    width:120px;
+    border-radius: 150px;
+}
+
+#title{
+    padding-top:40px;
+    text-align:center;
+    color:white;
+    cursor:pointer;
+}
+.thin {
+    font-weight:300;
+}
+.col-md-4, .col-md-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.sidebar {
+    position:fixed;
+    background: #303030;
+    height: 100%;
+    width: inherit;
+}
+
+.sidebar > ul{
+    text-align: right;
+    width:85%;
+}
+
+.sidebar > ul > li {
+    /* background: white; */
+}
+
+@media (max-width: 992px){
+    
+    .sidebar {
+        height:300px;
+        width:100%;
+        position:relative;
+    }
+}
