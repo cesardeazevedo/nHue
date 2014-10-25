@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>nHue</title>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="styles/nStyle.css">
+
+    </head>
+    <body>
+        <div class="fill"></div>
+        <div class="col-md-4">
+            <div class="sidebar">
+                <div id="title" class="thin">
+                    <img src="images/hue.png" alt="HUEHUEHUEHUEHUEHUE BRBR" id="logo">
+                    <h1>nHue!</h1>
+                    <p class="thin">Replace all images  on pages to images which you choose</p>
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <h2>Options</h2>
+                <hr />
+            </div>
+
+            <div style="padding-left:20px;">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="rdlType">Default HUEs</input>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label >
+                        <input type="radio" name="rdlType">Custom Images</input>
+                    </label>
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <td>
+                            <span>URL</span>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control">
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">Add</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script src="bower_components/angular/angular.min.js"></script>
+</html>
