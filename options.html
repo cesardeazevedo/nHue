@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="nHue">
     <head>
         <meta charset="UTF-8">
         <title>nHue</title>
@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="styles/nStyle.css">
 
     </head>
-    <body>
+    <body ng-controller="HueBRController">
         <div class="fill"></div>
         <div class="col-md-4">
             <div class="sidebar">
@@ -31,6 +31,13 @@
                         <input type="radio" name="rdlType">Default HUEs</input>
                     </label>
                 </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-3" ng-repeat="image in DefaultImages">
+                        <a class="thumbnail" href="#">
+                            <img ng-src="{{ image }}" alt="" />
+                        </a>
+                    </div>
+                </div>
                 <div class="radio">
                     <label >
                         <input type="radio" name="rdlType">Custom Images</input>
@@ -53,5 +60,8 @@
             </div>
         </div>
     </body>
+
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/controller.js"></script>
 </html>
