@@ -22,41 +22,44 @@
         <div class="col-md-8">
             <div class="jumbotron">
                 <h2>Options</h2>
+                {{ customImages }}
                 <hr />
             </div>
-
             <div style="padding-left:20px;">
                 <div class="radio">
                     <label>
-                        <input type="radio" name="rdlType">Default HUEs</input>
+                        <input type="radio" name="rdlType" checked="checked" ng-model="customImages" value="Default" >Default HUEs</input>
                     </label>
                 </div>
-                <div class="row">
-                    <div class="col-xs-6 col-md-3" ng-repeat="image in DefaultImages">
-                        <a class="thumbnail" href="#">
-                            <img ng-src="{{ image }}" alt="" />
-                        </a>
+                <div class="containerImages" ng-show="customImages == 'Default'">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-3" ng-repeat="image in DefaultImages">
+                            <a class="thumbnail" href="#">
+                                <img ng-src="{{ image }}" alt="" class="thumb" />
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="radio">
                     <label >
-                        <input type="radio" name="rdlType">Custom Images</input>
+                        <input type="radio" ng-model="customImages" name="rdlType" value="Custom">Custom Images</input>
                     </label>
                 </div>
-
-                <table class="table">
-                    <tr>
-                        <td>
-                            <span>URL</span>
-                        </td>
-                        <td>
-                            <input type="text" class="form-control">
-                        </td>
-                        <td>
-                            <button class="btn btn-primary">Add</button>
-                        </td>
-                    </tr>
-                </table>
+                <div class="containerImages" ng-show="customImages == 'Custom'">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <span>URL</span>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control">
+                            </td>
+                            <td>
+                                <button class="btn btn-primary">Add</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </body>

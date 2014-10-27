@@ -52,3 +52,12 @@ body {
         position:relative;
     }
 }
+
+.thumb{
+    max-height:180px;
+    max-width:180px;
+}
+
+.containerImages{
+    margin-right:15px;
+}
