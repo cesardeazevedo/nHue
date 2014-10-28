@@ -32,13 +32,17 @@
                     </label>
                 </div>
                 <div class="containerImages" ng-show="customImages == 'Default'">
+                    <div class="alert" ng-class="alert">
+                        <a href="#" class="alert-link">{{ alertMessage }} </a>
+                    </div>
                     <div class="row">
-                        <div class="col-xs-6 col-md-3" ng-repeat="image in DefaultImages">
+                        <div class="col-xs-6 col-md-3" ng-repeat="DefaultImg in DefaultImages">
                             <a class="thumbnail" href="#">
-                                <img ng-src="{{ image }}" alt="" class="thumb" />
+                                <img ng-src="{{ DefaultImg }}" alt="" class="thumb" />
                             </a>
                         </div>
                     </div>
+                    <button class="btn btn-primary" ng-click="SaveDefaultImages()">Save</button>
                 </div>
                 <div class="radio">
                     <label >
@@ -52,13 +56,27 @@
                                 <span>URL</span>
                             </td>
                             <td>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" ng-model="url" >
                             </td>
                             <td>
-                                <button class="btn btn-primary">Add</button>
+                                <button class="btn btn-primary" ng-click="addUrl(url)">Add</button>
                             </td>
                         </tr>
                     </table>
+                    <div class="alert" ng-class="alert">
+                        <a href="#" class="alert-link">{{ alertMessage }} </a>
+                    </div>
+                   <div class="row">
+                        <div class="col-xs-6 col-md-3" ng-repeat="customImage in urls track by $index">
+                            <a class="thumbnail" href="#" style='display:inline-flex'>
+                                <div class="caption">
+                                    <span ng-click="removeImage(customImage)" class="glyphicon glyphicon-remove"></span>
+                                </div>
+                                <img ng-src="{{ customImage }}" alt="" class="thumb" />
+                            </a>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" ng-click="SaveCustomImages()">Save</button>
                 </div>
             </div>
         </div>

@@ -18,9 +18,11 @@ var Hue = {
     ReplaceImages: function(){
         setInterval(function(){
             [].forEach.call(document.querySelectorAll('img'), function(e){
-                if(Hue.DefaultImages.indexOf(e.src) == -1){
-                    var RandomValue = Math.floor(Math.random() * Hue.DefaultImages.length);
-                    e.src = Hue.DefaultImages[RandomValue];
+                var urls = localStorage.DataUrls ?
+                           localStorage.DataUrls.split(',') : Hue.DefaultImages;
+                if(urls.indexOf(e.src) == -1){
+                    var RandomValue = Math.floor(Math.random() * urls.length);
+                    e.src = urls[RandomValue];
                 }
             });
         }, 1500);

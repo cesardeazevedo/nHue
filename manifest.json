@@ -8,6 +8,9 @@
     "persistent": false,
     "scripts": ["src/nHUE.js"]
   },
+  "permissions": [
+      "unlimitedStorage"
+  ],
   "content_scripts": [ {
       "js": ["src/nHUE.js"],
       "matches": [ "http://*/*", "https://*/*" ]

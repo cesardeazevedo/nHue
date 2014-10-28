@@ -61,3 +61,8 @@ body {
 .containerImages{
     margin-right:15px;
 }
+
+.alert-off{
+    display:none;
+}
+
