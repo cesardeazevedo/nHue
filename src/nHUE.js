@@ -1,4 +1,4 @@
-(function($) {
+(function(angular) {
 
 /*
  * Replace all images  on pages to images which you choose
@@ -16,11 +16,13 @@ var Hue = {
             Hue.ReplaceImages();
     },
     ReplaceImages: function(){
+        var urls = [];
+        chrome.storage.sync.get('DataUrls', function(result){
+            urls = result.DataUrls.Urls || Hue.DefaultImages;
+        });
         setInterval(function(){
             [].forEach.call(document.querySelectorAll('img'), function(e){
-                var urls = localStorage.DataUrls ?
-                           localStorage.DataUrls.split(',') : Hue.DefaultImages;
-                if(urls.indexOf(e.src) == -1){
+                if(urls.indexOf(e.src) == -1) {
                     var RandomValue = Math.floor(Math.random() * urls.length);
                     e.src = urls[RandomValue];
                 }

@@ -1,5 +1,5 @@
 angular.module('nHue.controllers', [])
-.controller('HueBRController', HueBRController);
+.controller('OptionsController', HueBRController);
 
 HueBRController.$inject = ['$scope', "$timeout"];
 function HueBRController($scope, $timeout)
@@ -13,15 +13,18 @@ function HueBRController($scope, $timeout)
             ,"https://gardenalbr.files.wordpress.com/2013/06/huehue.jpg"
     ];
 
+    $scope.urls = [];
     $scope.alert = "alert-off";
-
-    $scope.urls = localStorage.DataUrls ? 
-                  localStorage.DataUrls.split(',') : [];
-    $scope.customImages = localStorage.DataCustom  || 'Default';
+    chrome.storage.sync.get('DataUrls', function(result) {
+        $scope.$apply(function(){
+            $scope.urls = result.DataUrls.Urls || [];
+            $scope.customImages = result.DataUrls.Type || "Default";
+        });
+    });
 
     $scope.addUrl = function(url) {
-        if(url != ""){
-            if(new RegExp("^(http|https)(:\/\/.*)(.jpg|.gif|.png)$").test(url)) {
+        if(url != "") {
+            if(new RegExp("^(http|https)(:\/\/.*)(.jpg|.jpeg|.gif|.png)$").test(url)) {
                 $scope.url = "";
                 $scope.urls.push(url);
                 $scope.ShowAlert("alert-success", "New image added");
@@ -31,7 +34,7 @@ function HueBRController($scope, $timeout)
         }
     };
 
-    $scope.ShowAlert = function(alertType, alertMessage){
+    $scope.ShowAlert = function(alertType, alertMessage) {
         $scope.alert = alertType;
         $scope.alertMessage = alertMessage;
         $timeout(function(){
@@ -40,7 +43,7 @@ function HueBRController($scope, $timeout)
         },5000);
     };
 
-    $scope.SaveDefaultImages = function(){
+    $scope.SaveDefaultImages = function() {
         $scope.customImages = 'Default';
         $scope.ShowAlert("alert-success", 'Save Successfully');
     };
@@ -57,7 +60,7 @@ function HueBRController($scope, $timeout)
     };
 
     $scope.SaveStorage = function() {
-        localStorage.DataUrls = $scope.urls;
-        localStorage.DataCustom = $scope.customImages;
+        var data = { "Urls": $scope.urls, "Type": $scope.customImages };
+        chrome.storage.sync.set({'DataUrls': data });
     };
 }
