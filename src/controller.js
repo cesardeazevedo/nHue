@@ -45,13 +45,12 @@ function HueBRController($scope, $timeout)
 
     $scope.SaveDefaultImages = function() {
         $scope.customImages = 'Default';
-        $scope.ShowAlert("alert-success", 'Save Successfully');
+        $scope.SaveStorage();
     };
 
     $scope.SaveCustomImages = function() {
         $scope.customImages = 'Custom';
         $scope.SaveStorage();
-        $scope.ShowAlert("alert-success", 'Save Successfully');
     };
 
     $scope.removeImage = function(id) {
@@ -61,6 +60,8 @@ function HueBRController($scope, $timeout)
 
     $scope.SaveStorage = function() {
         var data = { "Urls": $scope.urls, "Type": $scope.customImages };
-        chrome.storage.sync.set({'DataUrls': data });
+        chrome.storage.sync.set({'DataUrls': data }, function(){
+            $scope.ShowAlert("alert-success", 'Save Successfully');
+        });
     };
 }

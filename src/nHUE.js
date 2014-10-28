@@ -18,7 +18,9 @@ var Hue = {
     ReplaceImages: function(){
         var urls = [];
         chrome.storage.sync.get('DataUrls', function(result){
-            urls = result.DataUrls.Urls || Hue.DefaultImages;
+            urls = result.DataUrls.Type == "Custom"          ?
+                   result.DataUrls.Urls || Hue.DefaultImages :
+                   Hue.DefaultImages;
         });
         setInterval(function(){
             [].forEach.call(document.querySelectorAll('img'), function(e){
