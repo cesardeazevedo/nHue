@@ -1,4 +1,4 @@
-(function(angular) {
+(function($) {
 
 /*
  * Replace all images  on pages to images which you choose
