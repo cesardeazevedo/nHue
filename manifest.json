@@ -1,6 +1,7 @@
 {
   "name": "nHUE",
-  "version": "1.0",
+  "short_name": "nHUE",
+  "version": "1.2",
   "manifest_version": 2,
   "description": "Replaces all images on the page with Huehue BR images, or the image you choose.",
   "icons": { "128": "images/hue.png" },
@@ -12,10 +13,5 @@
       "matches": [ "http://*/*", "https://*/*" ]
   } ],
   "optional_permissions": [ "http://*/*", "http://*/*", "tabs" ],
-  "options_page": "options.html",
-  "browser_action": {
-    "default_title": "nHUE",
-    "default_icon": "hue.ico",
-    "default_popup": "view.html"
-  }
+  "options_page": "options.html"
 }

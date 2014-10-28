@@ -16,7 +16,7 @@ var Hue = {
             Hue.ReplaceImages();
     },
     ReplaceImages: function(){
-        var urls = [];
+        var urls = Hue.DefaultImages;
         chrome.storage.sync.get('DataUrls', function(result){
             urls = result.DataUrls.Type == "Custom"          ?
                    result.DataUrls.Urls || Hue.DefaultImages :
