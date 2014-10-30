@@ -6,5 +6,15 @@ Chrome extension inspired by [nCage](https://chrome.google.com/webstore/detail/n
 
 ![screenshot](http://oquemevem.files.wordpress.com/2014/07/6096234_700b.jpg)
 
+##Chrome Web Store
+Add this extension on [Chrome Web Store](https://chrome.google.com/webstore/detail/nhue/ifepnbcikhpjfdnekeaghnoaepjgboio?utm_source=chrome-ntp-icon)
+
+##Screenshots
+![screenshot](http://i.cubeupload.com/QrKY7n.png)
+
+##Custom Images
+Define custom images.
+![screenshot](http://i.cubeupload.com/iCxDpS.png)
+
 ##License
 Release under the [WTFPL](https://github.com/cesardeazevedo/nHue/blob/master/LICENSE) - DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE.
