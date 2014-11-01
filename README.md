@@ -7,13 +7,14 @@ Chrome extension inspired by [nCage](https://chrome.google.com/webstore/detail/n
 ![screenshot](http://oquemevem.files.wordpress.com/2014/07/6096234_700b.jpg)
 
 ##Chrome Web Store
-Add this extension on [Chrome Web Store](https://chrome.google.com/webstore/detail/nhue/ifepnbcikhpjfdnekeaghnoaepjgboio?utm_source=chrome-ntp-icon)
+* Add this extension on [Chrome Web Store](https://chrome.google.com/webstore/detail/nhue/ifepnbcikhpjfdnekeaghnoaepjgboio?utm_source=chrome-ntp-icon)
 
 ##Screenshots
-![screenshot](http://i.cubeupload.com/QrKY7n.png)
+ ![screenshot](http://i.cubeupload.com/QrKY7n.png)
 
-##Custom Images
-Define custom images.
+##Preview Options
+* [http://cesardeazevedo.github.io/nHue/options.html](http://cesardeazevedo.github.io/nHue/options.html)
+
 ![screenshot](http://i.cubeupload.com/iCxDpS.png)
 
 ##License
