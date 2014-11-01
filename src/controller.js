@@ -15,12 +15,14 @@ function HueBRController($scope, $timeout)
 
     $scope.urls = [];
     $scope.alert = "alert-off";
-    chrome.storage.sync.get('DataUrls', function(result) {
-        $scope.$apply(function(){
-            $scope.urls = result.DataUrls.Urls || [];
-            $scope.customImages = result.DataUrls.Type || "Default";
-        });
-    });
+   if(chrome.storage != undefined){
+       chrome.storage.sync.get('DataUrls', function(result) {
+           $scope.$apply(function(){
+               $scope.urls = result.DataUrls.Urls || [];
+               $scope.customImages = result.DataUrls.Type || "Default";
+           });
+       });
+    }
 
     $scope.addUrl = function(url) {
         if(url != "") {
@@ -60,10 +62,15 @@ function HueBRController($scope, $timeout)
 
     $scope.SaveStorage = function() {
         var data = { "Urls": $scope.urls, "Type": $scope.customImages };
-        chrome.storage.sync.set({'DataUrls': data }, function(){
-            $scope.$apply(function(){
-                $scope.ShowAlert("alert-success", 'Save Successfully');
+        
+        if(chrome.storage != undefined){
+            chrome.storage.sync.set({"DataUrls": data }, function(){
+                $scope.$apply(function(){
+                    $scope.ShowAlert("alert-success", "Save Successfully");
+                });
             });
-        });
+        }else {
+            $scope.ShowAlert("alert-warning", "(preview mode) you need add this extension into your chrome");
+        }
     };
 }
