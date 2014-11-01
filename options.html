@@ -8,9 +8,10 @@
 
     </head>
     <body ng-controller="OptionsController">
-        <div class="fill"></div>
-        <div class="col-md-4">
-            <div class="sidebar">
+
+        <div class="Topline"></div>
+        <div class="col-md-4 animation">
+            <div class="sidebar ">
                 <div id="title" class="thin">
                     <img src="images/hue.png" alt="HUEHUEHUEHUEHUEHUE BRBR" id="logo">
                     <h1>nHue!</h1>
@@ -20,31 +21,53 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="jumbotron">
-                <h2>Options</h2>
-                {{ customImages }}
-                <hr />
+            <a href="https://github.com/cesardeazevedo/nHue" target="_BLANK"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+            <div id="header">
+                <div class="navbar-header" style="width:95%;">
+                    <span href="#" class="navbar-brand">
+                        Options
+                    </span>
+                    <div class="pull-right">
+                        <ul class="nav navbar-nav">
+                            <li style="width:200px;">
+                            <button class="btn btn-success btn-lg">
+                                <a style="color:white" target="_BLANK" href="https://chrome.google.com/webstore/detail/nhue/ifepnbcikhpjfdnekeaghnoaepjgboio?utm_source=chrome-ntp-icon">
+                                    Chrome Web Store
+                                </a>
+                            </button>
+                            </li>
+                            <li>
+                            <button class="btn btn-success btn-lg">
+                                <a style="color:white" href="https://github.com/cesardeazevedo/nHue" target="_BLANK">Github</a>
+                            </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div style="padding-left:20px;">
-                <div class="radio">
+            <div id="wrap">
+                <br />
+                <div class="alert" ng-class="alert">
+                    <a href="#" class="alert-link">{{ alertMessage }} </a>
+                </div>
+                <div class="radio btn btn-default">
                     <label>
-                        <input type="radio" name="rdlType" checked="checked" ng-model="customImages" value="Default" >Default HUEs</input>
+                        <input type="radio" name="rdlType" checked="checked" ng-model="customImages" value="Default" >Default Images</input>
                     </label>
                 </div>
                 <div class="containerImages" ng-show="customImages == 'Default'">
-                    <div class="alert" ng-class="alert">
-                        <a href="#" class="alert-link">{{ alertMessage }} </a>
-                    </div>
                     <div class="row">
                         <div class="col-xs-6 col-md-3" ng-repeat="DefaultImg in DefaultImages">
                             <a class="thumbnail" href="#">
-                                <img ng-src="{{ DefaultImg }}" alt="" class="thumb" />
+                                <img ng-src="{{ DefaultImg }}" alt="" class="thumb img-responsive" />
                             </a>
                         </div>
                     </div>
-                    <button class="btn btn-primary" ng-click="SaveDefaultImages()">Save</button>
+                    <button class="btn btn-primary" ng-click="SaveDefaultImages()"><span class="glyphicon glyphicon-floppy-saved"></span>  - Save</button>
+                    <br />
+                    <br />
                 </div>
-                <div class="radio">
+                <div class="radio btn btn-default">
                     <label >
                         <input type="radio" ng-model="customImages" name="rdlType" value="Custom">Custom Images</input>
                     </label>
@@ -63,26 +86,25 @@
                             </td>
                         </tr>
                     </table>
-                    <div class="alert" ng-class="alert">
-                        <a href="#" class="alert-link">{{ alertMessage }} </a>
-                    </div>
-                   <div class="row">
+                    <div class="row">
                         <div class="col-xs-6 col-md-3" ng-repeat="customImage in urls track by $index">
-                            <a class="thumbnail" href="#" style='display:inline-flex'>
+                            <a class="thumbnail" href="#" style="display:inline-block">
                                 <div class="caption">
                                     <span ng-click="removeImage(customImage)" class="glyphicon glyphicon-remove"></span>
                                 </div>
-                                <img ng-src="{{ customImage }}" alt="" class="thumb" />
+                                <img ng-src="{{ customImage }}" alt="" class="thumb img-responsive" />
                             </a>
                         </div>
                     </div>
-                    <button class="btn btn-primary" ng-click="SaveCustomImages()">Save</button>
+                    <button class="btn btn-primary" ng-click="SaveCustomImages()"><span class="glyphicon glyphicon-floppy-saved"></span>  - Save</button>
+                    <hr />
                 </div>
             </div>
         </div>
     </body>
 
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="src/app.js"></script>
     <script src="src/controller.js"></script>
 </html>
